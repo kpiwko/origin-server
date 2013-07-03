@@ -1,0 +1,14 @@
+---
+locked_files:
+- bin/
+- bin/*
+- metadata/
+- metadata/*
+- env/
+- env/OPENSHIFT_AG_UNIFIED_PUSH_DIR
+- env/OPENSHIFT_AG_UNIFIED_PUSH_LOG_DIR
+- env/OPENSHIFT_AG_UNIFIED_PUSH_JDK*
+- env/OPENSHIFT_AG_UNIFIED_PUSH_VERSION
+- env/M2_HOME
+processed_templates:
+- '**/*.erb'
