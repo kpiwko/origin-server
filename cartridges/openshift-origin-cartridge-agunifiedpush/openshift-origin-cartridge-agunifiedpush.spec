@@ -1,15 +1,15 @@
-%global cartridgedir %{_libexecdir}/openshift/cartridges/ag-unified-push
+%global cartridgedir %{_libexecdir}/openshift/cartridges/agunifiedpush
 %global jbossver 7.1.1.Final
 %global oldjbossver 7.1.0.Final
 
 Summary:       Provides AeroGear Unified Push Server support
-Name:          openshift-origin-cartridge-ag-unified-push
+Name:          openshift-origin-cartridge-agunifiedpush
 Version: 0.0.1
 Release:       1%{?dist}
 Group:         Development/Languages
 License:       ASL 2.0
 URL:           http://www.openshift.com
-Source0:       https://github.com/fjuma/origin-server/blob/push_server/cartridges/openshift-origin-cartridge-ag-unified-push/openshift-origin-cartridge-ag-unified-push.tar.gz
+Source0:       https://github.com/fjuma/origin-server/blob/push_server/cartridges/openshift-origin-cartridge-agunifiedpush/openshift-origin-cartridge-agunifiedpush.tar.gz
 Requires:      rubygem(openshift-origin-node)
 Requires:      openshift-origin-node-util
 Requires:      lsof

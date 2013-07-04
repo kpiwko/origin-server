@@ -2,12 +2,12 @@
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
-JBOSSAS_BIN_DIR=${OPENSHIFT_AG_UNIFIED_PUSH_DIR}/bin
+JBOSSAS_BIN_DIR=${OPENSHIFT_AGUNIFIEDPUSH_DIR}/bin
 JBOSSAS_PID_FILE=${OPENSHIFT_HOMEDIR}/app-root/runtime/jbossas.pid
 
 source $JBOSSAS_BIN_DIR/util
 
-cartridge_type="ag-unified-push"
+cartridge_type="agunifiedpush"
 
 # Check if the jbossas process is running
 function isrunning() {
@@ -63,8 +63,8 @@ function ishttpup() {
     let count=0
     while [ ${count} -lt 48 ]
     do
-        if /usr/sbin/lsof -P -n -i "@${OPENSHIFT_AG_UNIFIED_PUSH_IP}:${OPENSHIFT_AG_UNIFIED_PUSH_HTTP_PORT}" | grep "(LISTEN)" > /dev/null; then
-            echo "Found ${OPENSHIFT_AG_UNIFIED_PUSH_IP}:${OPENSHIFT_AG_UNIFIED_PUSH_HTTP_PORT} listening port"
+        if /usr/sbin/lsof -P -n -i "@${OPENSHIFT_AGUNIFIEDPUSH_IP}:${OPENSHIFT_AGUNIFIEDPUSH_HTTP_PORT}" | grep "(LISTEN)" > /dev/null; then
+            echo "Found ${OPENSHIFT_AGUNIFIEDPUSH_IP}:${OPENSHIFT_AGUNIFIEDPUSH_HTTP_PORT} listening port"
             return 0
         fi
         let count=${count}+1
@@ -77,7 +77,7 @@ function ishttpup() {
 
 function build() {
 
-  CONFIG_DIR="${OPENSHIFT_AG_UNIFIED_PUSH_DIR}/standalone/configuration"
+  CONFIG_DIR="${OPENSHIFT_AGUNIFIEDPUSH_DIR}/standalone/configuration"
   OPENSHIFT_MAVEN_MIRROR="${CONFIG_DIR}/settings.base.xml"
   if [[ $OPENSHIFT_GEAR_DNS =~ .*\.rhcloud\.com$ ]]
   then
@@ -153,9 +153,9 @@ function deploy() {
   echo "Deploying JBoss"
 
   if [ "$(ls ${OPENSHIFT_REPO_DIR}/deployments)" ]; then
-    rsync -r --delete --exclude ".*" ${OPENSHIFT_REPO_DIR}/deployments/ ${OPENSHIFT_AG_UNIFIED_PUSH_DIR}/standalone/deployments/
+    rsync -r --delete --exclude ".*" ${OPENSHIFT_REPO_DIR}/deployments/ ${OPENSHIFT_AGUNIFIEDPUSH_DIR}/standalone/deployments/
   else
-    rm -rf ${OPENSHIFT_AG_UNIFIED_PUSH_DIR}/standalone/deployments/*
+    rm -rf ${OPENSHIFT_AGUNIFIEDPUSH_DIR}/standalone/deployments/*
   fi
 }
 
@@ -220,9 +220,9 @@ function reload() {
 
 # Clean up any log files
 function tidy() {
-  client_message "Emptying log dir: $OPENSHIFT_AG_UNIFIED_PUSH_LOG_DIR"
+  client_message "Emptying log dir: $OPENSHIFT_AGUNIFIEDPUSH_LOG_DIR"
   shopt -s dotglob
-  rm -rf $OPENSHIFT_AG_UNIFIED_PUSH_LOG_DIR/*
+  rm -rf $OPENSHIFT_AGUNIFIEDPUSH_LOG_DIR/*
 }
 
 function threaddump() {
