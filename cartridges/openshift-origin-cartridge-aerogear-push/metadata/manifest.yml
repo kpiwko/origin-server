@@ -127,4 +127,4 @@ Endpoints:
     Public-Port-Name:  REMOTING_PROXY_PORT
 Additional-Control-Actions:
     - threaddump
-Source-Url: https://github.com/fjuma/cartridgesource/raw/master/openshift-origin-cartridge-aerogear-push.tar.gz
+Source-Url: https://github.com/kpiwko/cartridgesource/raw/master/openshift-origin-cartridge-aerogear-push.tar.gz
